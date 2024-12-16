@@ -1,6 +1,6 @@
 # CostcoReceipt2qif
 
-This converts Costco receipt data into .qif file which you can import into your personal finance software.
+This converts Costco receipt data into a .qif file which you can import into your personal finance software.
 Each receipt is generated into a split-transaction, with categories pre-populated, and coupons marked with tags.
 
 There are two programs in this repository.
