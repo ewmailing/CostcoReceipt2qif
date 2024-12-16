@@ -8,7 +8,7 @@ m.categories =
 	["Groceries"] = "Groceries",
 	["Household"] = "Household",
 	["Home Repair"] = "Home Repair",
-	["Medicine"] = "Medicine",
+	["Medical:Medicine"] = "Medical:Medicine",
 	["Office"] = "Office",
 	["Rebate"] = "Rebate",
 	["Redemption Value"] = "Redemption Value",
@@ -182,9 +182,9 @@ m.item_to_category =
 	["smooth"] = m.categories["Entertainment:Food"],
 
 
-	["nyquil"] = m.categories["Medicine"],
-	["KSIBU"] = m.categories["Medicine"], -- Ibuprofen
-	["MISC. OTC"] = m.categories["Medicine"],
+	["nyquil"] = m.categories["Medical:Medicine"],
+	["KSIBU"] = m.categories["Medical:Medicine"], -- Ibuprofen
+	["MISC. OTC"] = m.categories["Medical:Medicine"],
 
 
 	["G2 BLACK AST"] = m.categories["Office"],
