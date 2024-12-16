@@ -498,8 +498,8 @@ function parse_json_receipt(full_file, output_qif_file, recent_amount)
 			output_lines[5] = "NWITHD"
 		end
 
-		output_lines[6] = "CX"
-		output_lines[7] = "LSplit"
+--		output_lines[6] = "CX"
+		output_lines[6] = "LSplit"
 
 
 		for i=1, #output_prep_array do
