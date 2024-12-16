@@ -342,30 +342,38 @@ function parse_json_receipt(full_file, output_qif_file, recent_amount)
 					--print("cur_description", cur_description)
 					local reference_keyword = string.match(cur_description, "^%/(%w+)")
 					--print("reference_keyword", reference_keyword)
-					for j=1,#item_array do
-						if i ~= j then
-							local ref_entry = item_array[j]
-							local ref_description = ref_entry["itemDescription01"]
-					
-							--print("j=" .. j, "ref_description", ref_description)
 
-							if string.match(ref_description, reference_keyword) then
-								is_coupon = true
-								cur_description = "Coupon for: " .. ref_entry["itemDescription01"]
-								coupon_total = coupon_total + cur_price_num
-								did_find_ref = true
-								break
+					-- Drat, I found a case where an item starts with #, e.g. #10 SEC ENVL
+					-- It's probably why they started using /
+					-- So if reference_keyword is nil, skip out and try to go on as this is not a coupon.
+					if reference_keyword then
+						for j=1,#item_array do
+							if i ~= j then
+								local ref_entry = item_array[j]
+								local ref_description = ref_entry["itemDescription01"]
+						
+								-- print("j=" .. j, "ref_description", ref_description)
+
+								-- need to use string.find with 4th parameter to disable magic characters
+								if string.find(ref_description, reference_keyword, 1, true) then
+	--							if string.match(ref_description, reference_keyword) then
+									is_coupon = true
+									cur_description = "Coupon for: " .. ref_entry["itemDescription01"]
+									coupon_total = coupon_total + cur_price_num
+									did_find_ref = true
+									break
+								end
 							end
 						end
-					end
 
-					if not did_find_ref then
-						print("WARNING: Could not find item for coupon cur_description")
+						if not did_find_ref then
+							print("WARNING: Could not find item for coupon cur_description")
 
-						cur_description = "Coupon for: " .. cur_description
-						coupon_total = coupon_total + cur_price_num
-						is_coupon = true
-					end
+							cur_description = "Coupon for: " .. cur_description
+							coupon_total = coupon_total + cur_price_num
+							is_coupon = true
+						end
+					end -- if reference_keyword
 
 
 				end -- if reference_id
@@ -378,7 +386,9 @@ function parse_json_receipt(full_file, output_qif_file, recent_amount)
 			local did_find_category = false
 			for item, category in pairs(item_to_cat_map) do
 				local item_upper = string.upper(item)
-				if string.match(cur_description, item_upper) then
+				--if string.match(cur_description, item_upper) then
+				-- need to use string.find with 4th parameter to disable magic characters
+				if string.find(cur_description, item_upper, 1, true) then
 					found_category = category
 					did_find_category = true
 					break

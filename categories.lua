@@ -3,13 +3,16 @@ local m = {}
 m.categories =
 {
 	["Auto:Fuel"] = "Auto:Fuel",
+	["Auto:Parts"] = "Auto:Parts",
 	["Clothing"] = "Clothing",
 	["Entertainment:Food"] = "Entertainment:Food",
 	["Groceries"] = "Groceries",
 	["Household"] = "Household",
 	["Home Repair"] = "Home Repair",
+	["Kitchen"] = "Kitchen",
 	["Medical:Medicine"] = "Medical:Medicine",
 	["Office"] = "Office",
+	["Pet"] = "Pet",
 	["Rebate"] = "Rebate",
 	["Redemption Value"] = "Redemption Value",
 	["Software"] = "Software",
@@ -21,6 +24,7 @@ m.categories =
 m.item_to_category =
 {
 	["gas"] = m.categories["Auto:Fuel"],
+	["GR 35 STD"] = m.categories["Auto:Parts"],
 
 	["glove"] = m.categories["Clothing"],
 	["pants"] = m.categories["Clothing"],
@@ -121,7 +125,7 @@ m.item_to_category =
 	["curry"] = m.categories["Groceries"],
 	["country crck"] = m.categories["Groceries"],
 	["peas"] = m.categories["Groceries"],
-	["rasin"] = m.categories["Groceries"],
+	["raisin"] = m.categories["Groceries"],
 	["sriracha"] = m.categories["Groceries"],
 	["sauce"] = m.categories["Groceries"],
 	["tom paste"] = m.categories["Groceries"],
@@ -145,6 +149,18 @@ m.item_to_category =
 	["tabasco"] = m.categories["Groceries"],
 	["hash"] = m.categories["Groceries"],
 	["SPGHETTI"] = m.categories["Groceries"],
+	["CAYENNE"] = m.categories["Groceries"],
+	["KIDNY"] = m.categories["Groceries"],
+	["PEPMNT"] = m.categories["Groceries"],
+	["FRANKS"] = m.categories["Groceries"],
+	["KRAFT"] = m.categories["Groceries"],
+	["RAMEN"] = m.categories["Groceries"],
+	["OREGANO"] = m.categories["Groceries"],
+	["QUESADILLA"] = m.categories["Groceries"],
+	["RUFFLES"] = m.categories["Groceries"],
+	["BEAN"] = m.categories["Groceries"],
+	["RIBS"] = m.categories["Groceries"],
+	["BLUEBRY"] = m.categories["Groceries"],
 
 	-- ground beef tubes
 	["tubes"] = m.categories["Groceries"],
@@ -182,15 +198,20 @@ m.item_to_category =
 	["smooth"] = m.categories["Entertainment:Food"],
 
 
+	["2QT SQUARE"] = m.categories["Kitchen"],
+
 	["nyquil"] = m.categories["Medical:Medicine"],
 	["KSIBU"] = m.categories["Medical:Medicine"], -- Ibuprofen
 	["MISC. OTC"] = m.categories["Medical:Medicine"],
+	["MELATONIN"] = m.categories["Medical:Medicine"],
 
 
 	["G2 BLACK AST"] = m.categories["Office"],
 	["file folder"] = m.categories["Office"],
 	["envl"] = m.categories["Office"],
+	["STAPLES"] = m.categories["Office"],
 
+	["KS CAT"] = m.categories["Pet"],
 
 	["rebate"] = m.categories["Rebate"],
 
@@ -208,6 +229,7 @@ m.item_to_category =
 	["shamp"] = m.categories["Toiletries"],
 	["pantene"] = m.categories["Toiletries"],
 	["toothpaste"] = m.categories["Toiletries"],
+	["ORAL-B"] = m.categories["Toiletries"],
 
 }
 
