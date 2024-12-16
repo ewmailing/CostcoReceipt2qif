@@ -466,7 +466,7 @@ function parse_json_receipt(full_file, output_qif_file, recent_amount)
 		-- Trying to match the name that Citi Costco Visa generates in its transaction names
 		local payee_name = "COSTCO WHSE #"
 			-- I found a business center with 3 digits, and Citi puts a leading 0 in front of it to make 4 digits
-			.. string.format("%4d", tonumber(current_receipt.warehouseNumber))
+			.. string.format("%04d", tonumber(current_receipt.warehouseNumber))
 			.. "        " -- seems to be 8 spaces
 			.. current_receipt.warehouseCity
 
