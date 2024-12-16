@@ -3,12 +3,18 @@ local m = {}
 m.categories =
 {
 	["Auto:Fuel"] = "Auto:Fuel",
+	["Clothing"] = "Clothing",
 	["Entertainment:Food"] = "Entertainment:Food",
 	["Groceries"] = "Groceries",
 	["Household"] = "Household",
 	["Home Repair"] = "Home Repair",
+	["Medicine"] = "Medicine",
+	["Office"] = "Office",
+	["Rebate"] = "Rebate",
+	["Redemption Value"] = "Redemption Value",
 	["Software"] = "Software",
 	["Taxes:Sales"] = "Taxes:Sales",
+	["Toiletries"] = "Toiletries",
 }
 
 
@@ -26,6 +32,8 @@ m.item_to_category =
 
 	["chicken"] = m.categories["Groceries"],
 	["beef"] = m.categories["Groceries"],
+	["chuck"] = m.categories["Groceries"],
+	["roast"] = m.categories["Groceries"],
 	["pork"] = m.categories["Groceries"],
 	["salmon"] = m.categories["Groceries"],
 	["turkey"] = m.categories["Groceries"],
@@ -39,6 +47,7 @@ m.item_to_category =
 	["oat"] = m.categories["Groceries"],
 	["quaker"] = m.categories["Groceries"],
 	["baguette"] = m.categories["Groceries"],
+	["croiss"] = m.categories["Groceries"],
 	["broc"] = m.categories["Groceries"],
 	["choy"] = m.categories["Groceries"],
 	["spinach"] = m.categories["Groceries"],
@@ -63,15 +72,20 @@ m.item_to_category =
 	["pepper"] = m.categories["Groceries"],
 	["salt"] = m.categories["Groceries"],
 	["choc"] = m.categories["Groceries"],
+	["tillamoos"] = m.categories["Groceries"],
 	["cheese"] = m.categories["Groceries"],
 	["cream"] = m.categories["Groceries"],
+	["whip crm"] = m.categories["Groceries"],
 	["yogurt"] = m.categories["Groceries"],
+	["ygrt"] = m.categories["Groceries"],
 	["ygt"] = m.categories["Groceries"],
 	["milk"] = m.categories["Groceries"],
 	["lactose"] = m.categories["Groceries"],
 	["egg"] = m.categories["Groceries"],
+	["cage free"] = m.categories["Groceries"],
 	["tuna"] = m.categories["Groceries"],
 	["corn"] = m.categories["Groceries"],
+	["kdney"] = m.categories["Groceries"],
 	["EVOO"] = m.categories["Groceries"], -- Extra Virgin Olive Oil
 	["olive"] = m.categories["Groceries"],
 	["oil"] = m.categories["Groceries"],
@@ -84,6 +98,7 @@ m.item_to_category =
 	["noodle"] = m.categories["Groceries"],
 	["quinoa"] = m.categories["Groceries"],
 	["tofu"] = m.categories["Groceries"],
+	["pho"] = m.categories["Groceries"],
 	["pepsi"] = m.categories["Groceries"],
 	["cola"] = m.categories["Groceries"],
 	["coke"] = m.categories["Groceries"],
@@ -97,7 +112,7 @@ m.item_to_category =
 	["cheerios"] = m.categories["Groceries"],
 	["bcn"] = m.categories["Groceries"],
 	["reddi wip"] = m.categories["Groceries"],
-	["keychup"] = m.categories["Groceries"],
+	["ketchup"] = m.categories["Groceries"],
 	["mayo"] = m.categories["Groceries"],
 	["shrd"] = m.categories["Groceries"],
 	["honey"] = m.categories["Groceries"],
@@ -113,13 +128,23 @@ m.item_to_category =
 	["fuji"] = m.categories["Groceries"],
 	["berry"] = m.categories["Groceries"],
 	["strwbrry"] = m.categories["Groceries"],
+	["strawpres"] = m.categories["Groceries"],
 	["skippy"] = m.categories["Groceries"],
 	["whey"] = m.categories["Groceries"],
 	["pprmnt"] = m.categories["Groceries"],
 	["peppmnt"] = m.categories["Groceries"],
 	["ghir"] = m.categories["Groceries"],
 	["popcorn"] = m.categories["Groceries"],
+	["micro pop"] = m.categories["Groceries"],
 	["doritos"] = m.categories["Groceries"],
+	["burrito"] = m.categories["Groceries"],
+	["tonkotsu"] = m.categories["Groceries"],
+	["optimum gsw"] = m.categories["Groceries"],
+	["feta"] = m.categories["Groceries"],
+	["PARMIGIANO"] = m.categories["Groceries"],
+	["tabasco"] = m.categories["Groceries"],
+	["hash"] = m.categories["Groceries"],
+	["SPGHETTI"] = m.categories["Groceries"],
 
 	-- ground beef tubes
 	["tubes"] = m.categories["Groceries"],
@@ -140,6 +165,13 @@ m.item_to_category =
 	["AA"] = m.categories["Household"],
 	["AAA"] = m.categories["Household"],
 	["batt"] = m.categories["Household"],
+	["SMK/CO ALRM"] = m.categories["Household"],
+	["exting"] = m.categories["Household"],
+	["flashlight"] = m.categories["Household"],
+	-- laundry detergent
+	["ks ultra liq"] = m.categories["Household"],
+	["BOUNCE"] = m.categories["Household"],
+
 
 
 
@@ -151,15 +183,18 @@ m.item_to_category =
 
 
 	["nyquil"] = m.categories["Medicine"],
+	["KSIBU"] = m.categories["Medicine"], -- Ibuprofen
+	["MISC. OTC"] = m.categories["Medicine"],
 
 
-	["g2 black ast"] = m.categories["Office"],
+	["G2 BLACK AST"] = m.categories["Office"],
 	["file folder"] = m.categories["Office"],
 	["envl"] = m.categories["Office"],
 
 
 	["rebate"] = m.categories["Rebate"],
 
+	["REDEMP VAL"] = m.categories["Redemption Value"], 
 
 	["turbotax"] = m.categories["Software"],
 	["tt home/busi"] = m.categories["Software"],
