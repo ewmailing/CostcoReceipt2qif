@@ -31,6 +31,7 @@ m.item_to_category =
 	["shirt"] = m.categories["Clothing"],
 	["sock"] = m.categories["Clothing"],
 	["wear"] = m.categories["Clothing"],
+	["KS TRAIL"] = m.categories["Clothing"],
 
 
 
@@ -204,6 +205,7 @@ m.item_to_category =
 	["KSIBU"] = m.categories["Medical:Medicine"], -- Ibuprofen
 	["MISC. OTC"] = m.categories["Medical:Medicine"],
 	["MELATONIN"] = m.categories["Medical:Medicine"],
+	["RIC SF"] = m.categories["Medical:Medicine"],
 
 
 	["G2 BLACK AST"] = m.categories["Office"],
