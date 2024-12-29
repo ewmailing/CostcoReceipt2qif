@@ -488,13 +488,26 @@ function parse_json_receipt(full_file, output_qif_file, recent_amount)
 		output_lines[1] = "D" .. qif_date_str
 		output_lines[2] = "P" .. payee_name
 		-- always need to flip sign
-		local coupon_total_str = string.format("%.2f", -coupon_total)
+		local flipped_coupon_total = -coupon_total
+		local coupon_total_str = string.format("%.2f", flipped_coupon_total)
 		-- edge case: I've been seeing -0.00, so remove the negative sign.
 		if coupon_total_str == "-0.00" then
 			coupon_total_str = "0.00"
 		end
+		--[[
+		print("total_amount", total_amount)
+		print("flipped_coupon_total", flipped_coupon_total)
+		print("(total_amount + flipped_coupon_total)", (total_amount + flipped_coupon_total))
+		--]]
+		local percent_off = (flipped_coupon_total / (total_amount + flipped_coupon_total)) * 100.0
+		--print("percent_off", percent_off)
+		local percent_off_str = string.format("%.2f", percent_off)
+		if percent_off_str == "-0.00" then
+			percent_off_str = "0.00"
+		end
+		
 		--output_lines[3] = "M" .. "Coupon Savings: $" .. coupon_total_str
-		output_lines[3] = "M" .. "Coupons: $" .. coupon_total_str
+		output_lines[3] = "M" .. "Coupons: $" .. coupon_total_str .. " (" .. percent_off_str .. "% off)"
 
 
 		-- always need to flip sign
@@ -577,10 +590,13 @@ function parse_json_receipt(full_file, output_qif_file, recent_amount)
 	if #qif_receipt_array > 0 then
 
 		if not output_qif_file then
+			local helpers = require("helpers")
+			local file_dir, file_name, file_basename, file_ext = helpers.split_file_components(full_file)
 
 			local first_receipt = all_receipts_array[1]
 			local transaction_date = first_receipt.transactionDate
-			output_qif_file = "costco_" .. transaction_date .. ".qif"
+			-- local file_basename = "costco_" .. transaction_date .. ".qif"
+			output_qif_file = file_dir .. file_basename .. ".qif"			
 		end
 
 

@@ -202,6 +202,7 @@ m.item_to_category =
 	["2QT SQUARE"] = m.categories["Kitchen"],
 
 	["nyquil"] = m.categories["Medical:Medicine"],
+	["VKSDAYNTLIQ"] = m.categories["Medical:Medicine"],
 	["KSIBU"] = m.categories["Medical:Medicine"], -- Ibuprofen
 	["MISC. OTC"] = m.categories["Medical:Medicine"],
 	["MELATONIN"] = m.categories["Medical:Medicine"],

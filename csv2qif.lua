@@ -319,9 +319,29 @@ function parse_csv_receipt(full_file, entry_date_str, output_qif_file)
 	output_lines[1] = "!Type:CCard"
 	output_lines[2] = "D" .. entry_date_str
 	output_lines[3] = "PCOSTCO WHSE"
-	local coupon_total_str = string.format("%.2f", math.abs(coupon_total))
+
+	-- In the json version, the sign always needs to be flipped, because of the refund/return case. But I forgot what happens in this version.
+	-- I was always doing math.abs(coupon_total) here, but since I never tested/handled returns in this case,
+	-- I'm not sure if I should always flip it like the json version.
+	-- Since I don't have a good test, I'm preserving the abs for now.
+	local abs_coupon_total = math.abs(coupon_total)
+	local coupon_total_str = string.format("%.2f", abs_coupon_total)
+	-- edge case: I've been seeing -0.00, so remove the negative sign.
+	if coupon_total_str == "-0.00" then
+		coupon_total_str = "0.00"
+	end
+
+	local total_amount = totals_table["total"]
+	local percent_off = (abs_coupon_total / (total_amount + abs_coupon_total)) * 100.0
+	--print("percent_off", percent_off)
+	local percent_off_str = string.format("%.2f", percent_off)
+	if percent_off_str == "-0.00" then
+		percent_off_str = "0.00"
+	end
+
 	--output_lines[4] = "M" .. "Coupon Savings: $" .. coupon_total_str
-	output_lines[4] = "M" .. "Coupons: $" .. coupon_total_str
+	--output_lines[4] = "M" .. "Coupons: $" .. coupon_total_str
+	output_lines[4] = "M" .. "Coupons: $" .. coupon_total_str .. " (" .. percent_off_str .. "% off)"
 
 	output_lines[5] = "T-" .. totals_table["total"]
 
