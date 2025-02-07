@@ -162,6 +162,9 @@ m.item_to_category =
 	["BEAN"] = m.categories["Groceries"],
 	["RIBS"] = m.categories["Groceries"],
 	["BLUEBRY"] = m.categories["Groceries"],
+	["MUSHR"] = m.categories["Groceries"],
+	["YOGT"] = m.categories["Groceries"],
+	["GODIVA"] = m.categories["Groceries"],
 
 	-- ground beef tubes
 	["tubes"] = m.categories["Groceries"],
